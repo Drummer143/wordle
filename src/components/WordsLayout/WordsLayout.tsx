@@ -1,6 +1,7 @@
+import { Props } from '../../types';
 import styles from './WordsLayout.module.css';
    
-function WordsLayout() {
+function WordsLayout(props: Props) {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.heading}>Wordle</h1>
