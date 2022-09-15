@@ -1,7 +1,20 @@
-import { Props } from '../../types';
+import { useEffect } from 'react';
 import styles from './WordsLayout.module.css';
-   
+
+type Props = {
+  word: string
+  countOfTries: number
+  setCount: (prev: number) => void
+}
+
 function WordsLayout(props: Props) {
+  useEffect(() => {
+    if (props.countOfTries < 6) {
+      props.setCount(props.countOfTries + 1);
+      console.log('in words layout', props.countOfTries);
+    }
+  }, [props.word])
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.heading}>Wordle</h1>

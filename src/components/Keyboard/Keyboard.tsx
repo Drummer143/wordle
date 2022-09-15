@@ -1,64 +1,92 @@
-import { Props } from '../../types';
-import { ReactComponent as ArrowLeft } from '../../assets/leftArrow.svg';
+import { useState } from 'react';
 
 import styles from './Keyboard.module.css';
 
-type Letter = {
-    value: string,
-    status: string
+type Props = {
+    word: string
+    countOfTries: number
+    rightWord: string
+    setWord: (word: string) => void
 }
 
 function Keyboard(props: Props) {
-    const firstRowLetters = [{ value: 'Й', status: '' }, { value: 'Ц', status: '' }, { value: 'У', status: '' }, { value: 'К', status: '' }, { value: 'Е', status: '' }, { value: 'Н', status: '' }, { value: 'Г', status: '' }, { value: 'Ш', status: '' }, { value: 'Щ', status: '' }, { value: 'З', status: '' }, { value: 'Х', status: '' }, { value: 'Ъ', status: '' }];
-    const secondRowLetters = [{ value: 'Ф', status: '' }, { value: 'Ы', status: '' }, { value: 'В', status: '' }, { value: 'А', status: '' }, { value: 'П', status: '' }, { value: 'Р', status: '' }, { value: 'О', status: '' }, { value: 'Л', status: '' }, { value: 'Д', status: '' }, { value: 'Ж', status: '' }, { value: 'Э', status: '' }];
-    const thirdRowLetters = [{ value: 'Я', status: '' }, { value: 'Ч', status: '' }, { value: 'С', status: '' }, { value: 'М', status: '' }, { value: 'И', status: '' }, { value: 'Т', status: '' }, { value: 'Ь', status: '' }, { value: 'Б', status: '' }, { value: 'Ю', status: '' }];
+    const [input, setInput] = useState('');
+    const [excludedLetters, setExcludedLettes] = useState('');
+    const [lettersInAnotherPlace, setLetter] = useState('');
+    const [rightLetters, setRightLetters] = useState('');
 
-    const keyStatuses = {
-        notInTheWord: 'notInTheWord',
-        anotherPlace: 'anotherPlace',
-        right: 'right'
-    }
-
-    let word = '';
-
-    const handleClick = (letter: Letter) => {
-        if (word.length < 5) {
-            word += letter.value;
-            console.log(word);
+    const handleClick = (letter: string) => {
+        if (input.length < 5) {
+            setInput(prev => prev + letter);
+            console.log(input);
         } else {
             console.log('full');
         }
     }
 
     const handleDelete = () => {
-        if (word.length > 1) {
-            word.slice(0, -1);
-            console.log('delete');
+        if (input.length > 1) {
+            setInput(prev => prev.slice(0, -1))
+            console.log('delete', input);
         } else {
             console.log('empty');
         }
     }
 
     const handleSubmit = () => {
-        if (word.length === 5) {
-            console.log('submit', word);
-            word = '';
+        if (input.length === 5) {
+            for (let i = 0; i < input.length; i++) {
+                if (!props.rightWord.includes(input[i].toLowerCase())) {
+                    setExcludedLettes(prev => prev + input[i]);
+                } else if (props.rightWord[i] === input[i].toLowerCase()) {
+                    setRightLetters(prev => prev + input[i]);
+                } else {
+                    setLetter(prev => prev + input[i]);
+                }
+            }
+
+            console.log('submit', input);
+            props.setWord(input);
+            setInput('');
         }
     }
 
-    const firstRowKeys = firstRowLetters.map(letter => <button key={letter.value} onClick={() => handleClick(letter)} className={styles.key + ' ' + letter.status}>{letter.value}</button>);
-    const secondRowKeys = secondRowLetters.map(letter => <button key={letter.value} onClick={() => handleClick(letter)} className={styles.key + ' ' + letter.status}>{letter.value}</button>);
-    const thirdRowKeys = thirdRowLetters.map(letter => <button key={letter.value} onClick={() => handleClick(letter)} className={styles.key + ' ' + letter.status}>{letter.value}</button>);
+    const firstRowLetters = ['Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ'];
+    const secondRowLetters = ['Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э'];
+    const thirdRowLetters = ['←', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '→'];
+
+    const createButton = (value: string) => {
+        switch (value) {
+            case '←': {
+                return <button key={value} onClick={handleDelete} className={`${styles.key} ${styles.controls}`}>{value}</button>
+            }
+            case '→': {
+                return <button key={value} onClick={handleSubmit} className={`${styles.key} ${styles.controls}`}>{value}</button>
+            }
+            default: {
+                let status = '';
+                if (excludedLetters.includes(value)) {
+                    status = 'notInTheWord';
+                } else if (rightLetters.includes(value)) {
+                    status = 'right';
+                } else if (lettersInAnotherPlace.includes(value)) {
+                    status = 'anotherPlace';
+                }
+
+                return <button key={value} onClick={() => handleClick(value)} className={`${styles.key} ${styles[status] || ''}`}>{value}</button>
+            }
+        }
+    }
+
+    let firstRowKeys = firstRowLetters.map(letter => createButton(letter));
+    let secondRowKeys = secondRowLetters.map(letter => createButton(letter));
+    let thirdRowKeys = thirdRowLetters.map(letter => createButton(letter));
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.keyboardLine}>{firstRowKeys}</div>
             <div className={styles.keyboardLine}>{secondRowKeys}</div>
-            <div className={styles.keyboardLine}>
-                <button onClick={handleDelete} className={styles.backspace}>←{/* <ArrowLeft /> */}</button>
-                {thirdRowKeys}
-                <button onClick={handleSubmit} className={styles.backspace}>←{/* <ArrowLeft /> */}</button>
-            </div>
+            <div className={styles.keyboardLine}>{thirdRowKeys}</div>
         </div>
     );
 }

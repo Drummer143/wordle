@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --countOfKeysOnFisrtRow: 12;
+    --countOfKeysOnSecondRow: 11;
+    --countOfKeysOnFisrtRow: 11;
+}
+
 body {
     width: 100vw;
     height: 100vh;

@@ -1,5 +1,7 @@
 .wrapper {
   margin-top: 20px;
+
+  display: grid;
 }
 
 .keyboardLine {
@@ -28,7 +30,7 @@
     line-height: 1.3em;
 }
 
-.backspace {
+.controls {
     width: 60px;
 
     font-size: 30px;
@@ -41,7 +43,7 @@
 }
 
 .anotherPlace {
-  background-color: #fff;
+  background-color: #777;
 }
 
 .right {
