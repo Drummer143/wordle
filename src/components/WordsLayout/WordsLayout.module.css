@@ -31,7 +31,7 @@
   width: 208px;
   height: 40px;
 
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 
 .letter {
@@ -59,7 +59,7 @@
 }
 
 .anotherPlace {
-  background-color: #fff;
+  background-color: #777;
 }
 
 .right {

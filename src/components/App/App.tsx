@@ -17,18 +17,12 @@ function App() {
   const handleClick = (letter: string) => {
       if (currentWord.length < 5) {
           setCurrentWord(prev => prev + letter);
-          console.log(currentWord);
-      } else {
-          console.log('full');
       }
   }
 
   const handleDelete = () => {
-      if (currentWord.length > 1) {
+      if (currentWord.length > 0) {
           setCurrentWord(prev => prev.slice(0, -1))
-          console.log('delete', currentWord);
-      } else {
-          console.log('empty');
       }
   }
 
@@ -44,7 +38,6 @@ function App() {
         }
       }
 
-      console.log('submit', currentWord);
       setCountOfTries(prev => prev + 1);
       setPrevWords(prev => [...prev, currentWord]);
       setCurrentWord('');
@@ -53,7 +46,7 @@ function App() {
 
   return (
     <div className={styles.wrapper}>
-      <WordsLayout currentWord={currentWord} countOfTries={countOfTries} prevWords={prevWords} />
+      <WordsLayout currentWord={currentWord} rightWord={rightWord} countOfTries={countOfTries} prevWords={prevWords} />
       <Keyboard usedLetters={{ excludedLetters, wrongPosLetters, rightLetters }} handleClick={handleClick} handleDelete={handleDelete} handleSubmit={handleSubmit} />
     </div>
   );
