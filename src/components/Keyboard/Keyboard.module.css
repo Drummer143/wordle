@@ -49,3 +49,8 @@
 .right {
   background-color: #fadf53;
 }
+
+.key:active,
+.active {
+  box-shadow: 0 0 5px 5px #00000080 inset;
+}

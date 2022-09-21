@@ -1,0 +1,212 @@
+[
+    {
+        "keyCode": 81,
+        "values": {
+            "ru": "й"
+        }
+    },
+    {
+        "keyCode": 87,
+        "values": {
+            "ru": "ц"
+        }
+    },
+    {
+        "keyCode": 69,
+        "values": {
+            "ru": "у"
+        }
+    },
+    {
+        "keyCode": 82,
+        "values": {
+            "ru": "к"
+        }
+    },
+    {
+        "keyCode": 84,
+        "values": {
+            "ru": "е"
+        }
+    },
+    {
+        "keyCode": 89,
+        "values": {
+            "ru": "н"
+        }
+    },
+    {
+        "keyCode": 85,
+        "values": {
+            "ru": "г"
+        }
+    },
+    {
+        "keyCode": 73,
+        "values": {
+            "ru": "ш"
+        }
+    },
+    {
+        "keyCode": 79,
+        "values": {
+            "ru": "щ"
+        }
+    },
+    {
+        "keyCode": 80,
+        "values": {
+            "ru": "з"
+        }
+    },
+    {
+        "keyCode": 219,
+        "values": {
+            "ru": "х"
+        }
+    },
+    {
+        "keyCode": 221,
+        "values": {
+            "ru": "ъ"
+        }
+    },
+    {
+        "keyCode": 65,
+        "values": {
+            "ru": "ф"
+        }
+    },
+    {
+        "keyCode": 83,
+        "values": {
+            "ru": "ы"
+        }
+    },
+    {
+        "keyCode": 68,
+        "values": {
+            "ru": "в"
+        }
+    },
+    {
+        "keyCode": 70,
+        "values": {
+            "ru": "а"
+        }
+    },
+    {
+        "keyCode": 70,
+        "values": {
+            "ru": "а"
+        }
+    },
+    {
+        "keyCode": 71,
+        "values": {
+            "ru": "п"
+        }
+    },
+    {
+        "keyCode": 72,
+        "values": {
+            "ru": "р"
+        }
+    },
+    {
+        "keyCode": 74,
+        "values": {
+            "ru": "о"
+        }
+    },
+    {
+        "keyCode": 75,
+        "values": {
+            "ru": "л"
+        }
+    },
+    {
+        "keyCode": 76,
+        "values": {
+            "ru": "д"
+        }
+    },
+    {
+        "keyCode": 186,
+        "values": {
+            "ru": "ж"
+        }
+    },
+    {
+        "keyCode": 222,
+        "values": {
+            "ru": "э"
+        }
+    },
+    {
+        "keyCode": 90,
+        "values": {
+            "ru": "я"
+        }
+    },
+    {
+        "keyCode": 88,
+        "values": {
+            "ru": "ч"
+        }
+    },
+    {
+        "keyCode": 67,
+        "values": {
+            "ru": "с"
+        }
+    },
+    {
+        "keyCode": 86,
+        "values": {
+            "ru": "м"
+        }
+    },
+    {
+        "keyCode": 66,
+        "values": {
+            "ru": "и"
+        }
+    },
+    {
+        "keyCode": 78,
+        "values": {
+            "ru": "т"
+        }
+    },
+    {
+        "keyCode": 77,
+        "values": {
+            "ru": "ь"
+        }
+    },
+    {
+        "keyCode": 188,
+        "values": {
+            "ru": "б"
+        }
+    },
+    {
+        "keyCode": 190,
+        "values": {
+            "ru": "ю"
+        }
+    },
+    {
+        "keyCode": 13,
+        "values": {
+            "ru": "enter"
+        }
+    },
+    {
+        "keyCode": 8,
+        "values": {
+            "ru": "backspace"
+        }
+    }
+]
