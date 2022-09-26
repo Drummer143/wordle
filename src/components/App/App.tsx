@@ -2,11 +2,14 @@ import { useState } from 'react';
 
 import Keyboard from '../Keyboard/Keyboard';
 import WordsLayout from '../WordsLayout/WordsLayout';
+import words from '../../words.json';
 
 import styles from './App.module.css';
 
 function App() {
-  let rightWord = 'жизнь';
+  const [rightWord, setRightWord] = useState(words[Math.round(Math.random() * 10000) % words.length]);
+
+  console.log(rightWord);
   const [currentWord, setCurrentWord] = useState('');
   const [countOfTries, setCountOfTries] = useState(0);
   const [previousWords, setPreviousWords] = useState<string[]>([]);
