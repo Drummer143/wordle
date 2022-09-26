@@ -5,6 +5,7 @@ import WordsLayout from '../WordsLayout/WordsLayout';
 import words from '../../words.json';
 
 import styles from './App.module.css';
+import Modal from '../Modal/Modal';
 
 function App() {
   const [rightWord, setRightWord] = useState(words[Math.round(Math.random() * 10000) % words.length]);
@@ -52,6 +53,7 @@ function App() {
     <div className={styles.wrapper}>
       <WordsLayout currentWord={currentWord} rightWord={rightWord} countOfTries={countOfTries} previousWords={previousWords} />
       <Keyboard usedLetters={{ excludedLetters, wrongPositionLetters, rightLetters }} handleClick={handleClick} handleDelete={handleDelete} handleSubmit={handleSubmit} disabled={countOfTries < 6 ? false : true} />
+      <Modal status='win' />
     </div>
   );
 }

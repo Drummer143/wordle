@@ -1,0 +1,13 @@
+.wrapper {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 600px;
+    height: 600px;
+}
+
+.win {
+    background-color: #0f0;
+}
